@@ -1,0 +1,18 @@
+projects:
+  Hello-World-AppSync:
+    schemaPath: src/graphql/schema.json
+    includes:
+      - src/graphql/**/*.js
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        graphQLApiId: fhrltab3rfcz3aij3ekchu7abm
+        codeGenTarget: javascript
+        generatedFileName: ''
+        docsFilePath: src/graphql
+        region: ap-southeast-2
+        maxDepth: 2
+      endpoints:
+        prod: >-
+          https://yb2tmvlervg3bcwg57dxt6erou.appsync-api.ap-southeast-2.amazonaws.com/graphql

@@ -1,26 +1,51 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Grommet, Button } from 'grommet';
+import { Edit, List, Connectivity, Cut } from 'grommet-icons';
+var api = require('./util/api');
+
+const theme = {
+  global: {
+    font: {
+      family: 'Roboto',
+      size: '20px',
+      height: '20px',
+    },
+  },
+};
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <Grommet theme={theme}>
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <Button
+            icon={<Edit />}
+            label="Create Test Event"
+            onClick={() => { api.createEvent(); }}
+          />
+          <Button
+            icon={<Edit />}
+            label="Create Test Comment"
+            onClick={() => { api.createComment(); }}
+          />
+          <Button
+            icon={<List />}
+            label="List Events"
+            onClick={() => { api.listEvents(); }}
+          />
+          <Button
+            icon={<Connectivity />}
+            label="Subscribe to all"
+            onClick={() => { api.subscribeToAll(); }}
+          />
+          <Button
+            icon={<Cut />}
+            label="Unsubscribe to all"
+            onClick={() => { api.unsubscribeToAll(); }}
+          />
+
         </header>
-      </div>
+      </Grommet>
     );
   }
 }
